@@ -12,24 +12,58 @@
             <div class="avatar">
                 <img src="/views/uploads/monkey.png" class="img-circle" alt="">
             </div>
-            <form action="" class="col-xs-offset-1 col-xs-10">
+            <form id="login-form" class="col-xs-offset-1 col-xs-10">
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">
                         <i class="fa fa-user"></i>
                     </span>
-                    <input type="text" class="form-control" placeholder="用户名">
+                    <input type="text" class="form-control" placeholder="用户名" name="tc_name">
                 </div>
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">
                         <i class="fa fa-key"></i>
                     </span>
-                    <input type="password" class="form-control" placeholder="密码">
+                    <input type="password" class="form-control" placeholder="密码" name="tc_pass">
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
             </form>
         </div>
     </div>
 
-    <?php include "views/public/js.html" ?>
+    <?php include "/views/public/js.html" ?>
+    <script src="/views/assets/jquery-form/jquery.form.js"></script>
+    <script>
+        $(function(){
+//            $('#login-form').submit(function(){
+//                $('#login-form').ajaxSubmit({
+//                    url:'/api/login',
+//                    type:'post',
+//                    success:function(data){
+//                        console.log(data);
+//                        if(data.code == 200){
+//                            $.cookie('userinfo',JSON.stringify(data.result),{path:"/"});
+////                            location.href = '/';
+//                        }
+//                    }
+//                })
+//                return false;
+//            })
+            $('#login-form').submit(function () {
+                $(this).ajaxSubmit({
+                    url:'/api/login',
+                    type:'post',
+                    success: function (data) {
+                        if(data.code==200){
+                            $.cookie('userinfo',JSON.stringify(data.result),{path:"/"});
+                            location.href="/";
+
+                        }
+                    }
+                });
+//            防止自动提交；
+                return false;
+            })
+        })
+    </script>
 </body>
 </html>

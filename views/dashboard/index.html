@@ -58,6 +58,13 @@
 
     <!-- js-->
     <?php include "views/public/js.html" ?>
+    <script type="text/template" id="tpl-userinfo">
+        <div class="avatar img-circle">
+            <img src="{{tc_avatar}}">
+        </div>
+        <h4>{{tc_name}}</h4>
+
+    </script>
     <script>
 
         // 基于准备好的dom，初始化echarts实例
@@ -85,6 +92,14 @@
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
+
+        var userinfo = JSON.parse($.cookie('userinfo'));
+        console.log(userinfo);
+        var html = template('tpl-userinfo',userinfo);
+        console.log(html);
+        $('#userinfo').html(html);
+
+
 
     </script>
 </body>
