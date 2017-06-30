@@ -30,40 +30,10 @@
         </div>
     </div>
 
-    <?php include "/views/public/js.html" ?>
-    <script src="/views/assets/jquery-form/jquery.form.js"></script>
+    <?php include '/views/public/js.html' ?>
     <script>
-        $(function(){
-//            $('#login-form').submit(function(){
-//                $('#login-form').ajaxSubmit({
-//                    url:'/api/login',
-//                    type:'post',
-//                    success:function(data){
-//                        console.log(data);
-//                        if(data.code == 200){
-//                            $.cookie('userinfo',JSON.stringify(data.result),{path:"/"});
-////                            location.href = '/';
-//                        }
-//                    }
-//                })
-//                return false;
-//            })
-            $('#login-form').submit(function () {
-                $(this).ajaxSubmit({
-                    url:'/api/login',
-                    type:'post',
-                    success: function (data) {
-                        if(data.code==200){
-                            $.cookie('userinfo',JSON.stringify(data.result),{path:"/"});
-                            location.href="/";
-
-                        }
-                    }
-                });
-//            防止自动提交；
-                return false;
-            })
-        })
+        require(['static/js/dashboard/login']);
     </script>
+
 </body>
 </html>

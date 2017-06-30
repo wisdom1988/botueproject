@@ -1,7 +1,6 @@
-<script src="/views/assets/jquery/jquery.min.js"></script>
-<script src="/views/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="/views/assets/nprogress/nprogress.js"></script>
-<script src="/views/assets/echarts/echarts.min.js"></script>
-<script src="/views/static/js/common.js"></script>
-<script src="/views/assets/jquery-cookie/jquery.cookie.js"></script>
-<script src="/views/assets/artTemplate/template.js"></script>
+<script src="/views/static/libs/require.js"></script>
+<script src="/views/static/libs/config.js"></script>
+<script>
+    //侧边栏，除了登陆页面，其余页面通用，所以在这边require调用
+    require(['static/js/common']);
+</script>
