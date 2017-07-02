@@ -303,6 +303,9 @@ a:focus {
   padding: 40px 0 20px;
   background-color: #FFF;
 }
+.main .teacher .btn:active {
+  box-shadow:none;
+}
 .main .teacher-profile .settings {
   padding: 40px 0 20px;
   background-color: #FFF;

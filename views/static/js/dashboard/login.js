@@ -10,7 +10,6 @@ define(['jquery','form','cookie'],function($){
                 if(data.code==200){
                     $.cookie('userinfo',JSON.stringify(data.result),{path:"/"});
                     location.href="/";
-                    console.log(1);
                 }
             }
         });
